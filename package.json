@@ -1,0 +1,35 @@
+{
+  "name": "ai-career-path-skill-recommendation-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Career Path & Skill Recommendation System - MERN academic project",
+  "license": "MIT",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c cyan,magenta \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev --workspace server",
+    "dev:client": "npm run dev --workspace client",
+    "build": "npm run build --workspace server && npm run build --workspace client",
+    "start": "npm run start --workspace server",
+    "seed": "npm run seed --workspace server",
+    "seed:reset": "npm run seed:reset --workspace server",
+    "test": "npm run test --workspace server",
+    "test:watch": "npm run test:watch --workspace server",
+    "typecheck": "npm run typecheck --workspace server && npm run typecheck --workspace client",
+    "lint": "npm run lint --workspace server && npm run lint --workspace client",
+    "smoke": "tsx scripts/smoke-test.ts",
+    "backup": "node scripts/backup.mjs",
+    "backup:list": "node scripts/backup.mjs --list",
+    "backup:prune": "node scripts/backup.mjs --prune 14"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}
